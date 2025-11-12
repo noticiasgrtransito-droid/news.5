@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Ocorrências Rodoviárias</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+
+<div id="login-screen">
+  <h2>Acesso Restrito</h2>
+  <input id="user" placeholder="Usuário"><br>
+  <input id="pass" type="password" placeholder="Senha"><br>
+  <button id="loginBtn">Entrar</button>
+  <p id="loginMsg"></p>
+</div>
+
+<div id="app" class="hidden">
+  <header>
+    <h1>Painel Rodoviário</h1>
+    <span id="now"></span>
+    <button id="refreshBtn">Atualizar Notícias</button>
+  </header>
+
+  <section id="filtros">
+    <label>Ocorrência:</label>
+    <select id="occFilter">
+      <option value="">Todas</option>
+      <option>Internacional</option>
+      <option>Sindicato</option>
+      <option>Porto</option>
+      <option>Acidente</option>
+      <option>Roubo</option>
+      <option>Furto</option>
+      <option>Interdição</option>
+    </select>
+    <label>Região:</label>
+    <select id="regionFilter">
+      <option value="">Todas</option>
+      <option>Sudeste</option><option>Sul</option>
+      <option>Centro-Oeste</option><option>Nordeste</option><option>Norte</option>
+    </select>
+    <label>Rodovia:</label>
+    <select id="roadFilter"><option value="">Todas</option></select>
+    <button id="csvBtn">📥 CSV</button>
+  </section>
+
+  <div id="map"></div>
+
+  <h3>Notícias</h3>
+  <div id="newsList"></div>
+
+  <h3>Previsão do Tempo</h3>
+  <iframe src="https://www.cptec.inpe.br/" style="width:100%;height:300px;border:none;"></iframe>
+
+  <h3>Concessionárias</h3>
+  <div id="concessList"></div>
+
+  <h3>Telefones Úteis</h3>
+  <div id="phonesList"></div>
+
+  <h3>Ajuda</h3>
+  <p>
+    Este painel exibe notícias de fontes públicas (G1, R7, CNN, Google News e portais de segurança e rodovias),
+    categorizadas por tipo de ocorrência, região e rodovia.  
+    Clique em uma notícia para abrir a fonte original.  
+    Use os filtros acima e o botão CSV para exportar.  
+  </p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
